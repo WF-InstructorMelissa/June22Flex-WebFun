@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./minesweeper.html">MineSweeper Game</a>
+    </nav>
+    <div class="game">
+        <form action="">
+            <input type="number" name="guess" id="guess">
+            <!-- <input type="submit" name="" id="" value="Check"> -->
+            <button onclick="clicked()">Check</button>
+        </form>
+        <div class="answer">
+            <p id="theGuess"></p>
+            <p id="hi"></p>
+            <p id="low"></p>
+            <p id="correct"></p>
+        </div>
+        <h3>Past Guesses</h3>
+        <ol id="pastGuess"></ol>
+    </div>
+    <div class="rules">
+        <h3>Rules of the Game</h3>
+        <ul>
+            <li>Chose a number from 1 to 100</li>
+            <li>Whole numbers only</li>
+            <li>Integers only no letters</li>
+        </ul>
+    </div>
+    <script>
+        function clicked() {
+            alert("button clicked")
+        }
+    </script>
+</body>
+</html>

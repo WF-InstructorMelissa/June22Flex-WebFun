@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineSweeper Game</title>
+</head>
+<body>
+    <h1>Welcome to our Minesweeper Game</h1>
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="./guessNumber.html">Guess the Number Game</a>
+    </nav>
+    <div class="game">
+        <div id="board"></div>
+        <div id="time"></div>
+        <div id="buttons">
+            <button id="pause" onclick="changeText()">Hesitate</button>
+            <!-- Change hesitate button text to persevere -->
+            <button>Surrender</button>
+        </div>
+    </div>
+    <div class="rules">
+        <ul>
+            <li>Please turn off all electronic devices for your own safety</li>
+            <li>Locate the mines without killing yourself</li>
+            <li>Empty tiles = no mines close by - You are safe for now</li>
+            <li>Numbered tiles = tread carefully mines are close</li>
+        </ul>
+    </div>
+    <script>
+        function changeText() {
+            let text = document.getElementById('pause')
+            console.log(text.innerText)
+            if(text.innerText == "Hesitate") {
+                text.innerText = "Persevere"
+            } else {
+                text.innerText = "Hesitate"
+            }
+        }
+    </script>
+</body>
+</html>
