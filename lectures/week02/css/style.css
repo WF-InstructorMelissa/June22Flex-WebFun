@@ -1,0 +1,35 @@
+* {
+    border: red 1px solid
+}
+body {
+    background-color: beige;
+}
+.white {
+    /* background-color: white; */
+    padding: 10px;
+}
+.black {
+    /* background-color: black; */
+    /* color: white; */
+    margin: 30px;
+}
+.grey {
+    /* background-color: grey; */
+    padding: 10px 20px 50px 5px;
+    margin: 20px 50px 5px 10px;
+    /* width: 75px; */
+    display: inline-block;
+}
+#topNav {
+    text-align: center;
+}
+.toon {
+    max-width: 200px;
+    background-color: purple;
+    padding: 10px 20px 50px 5px;
+    margin: 20px 50px 5px 10px;
+}
+.main {
+    /* width: 75px; */
+    display: inline-block;
+}
