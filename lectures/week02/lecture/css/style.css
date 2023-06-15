@@ -5,16 +5,16 @@ body {
     background-color: beige;
 }
 .white {
-    /* background-color: white; */
+    background-color: white!important;
     padding: 10px;
 }
 .black {
-    /* background-color: black; */
-    /* color: white; */
+    background-color: black;
+    color: white;
     margin: 30px;
 }
 .grey {
-    /* background-color: grey; */
+    background-color: grey;
     padding: 10px 20px 50px 5px;
     margin: 20px 50px 5px 10px;
     /* width: 75px; */
@@ -24,12 +24,16 @@ body {
     text-align: center;
 }
 .toon {
-    max-width: 200px;
+    max-width: 50%;
     background-color: purple;
     padding: 10px 20px 50px 5px;
     margin: 20px 50px 5px 10px;
 }
 .main {
     /* width: 75px; */
+    display: inline-block;
+}
+.imgBlock {
+    width: 300px;
     display: inline-block;
 }
