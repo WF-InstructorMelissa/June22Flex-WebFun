@@ -1,0 +1,42 @@
+img {
+    max-width: 300px;
+    min-width: 200px
+}
+
+#surprise {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    border: 1px black solid;
+    background-color: black;
+    border-radius: 50%;
+    margin: 2em;
+}
+a {
+    color: white;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #b20909;
+    color: #e7dc8f;
+}
+.block6 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 300px
+}
+.threeFour {
+    display: flex;
+    flex-direction: row;
+}
+.three {
+    flex: 2;
+}
+.four {
+    font-size: 22px;
+}
