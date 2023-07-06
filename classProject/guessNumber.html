@@ -13,19 +13,22 @@
         <a href="./minesweeper.html">MineSweeper Game</a>
     </nav>
     <div class="game">
-        <form action="">
+        <button id="startStop" onclick="randnum()">Start Game</button>
+        <form name="guessNumForm">
             <input type="number" name="guess" id="guess">
             <!-- <input type="submit" name="" id="" value="Check"> -->
-            <button onclick="clicked()">Check</button>
+            <!-- <button onclick="clicked()">Check</button> -->
+            <input type="button" value="Check" onclick="clicked()">
         </form>
         <div class="answer">
             <p id="theGuess"></p>
-            <p id="hi"></p>
+            <!-- <p id="hi"></p>
             <p id="low"></p>
-            <p id="correct"></p>
+            <p id="correct"></p> -->
         </div>
         <h3>Past Guesses</h3>
-        <ol id="pastGuess"></ol>
+        <!-- <ol id="pastGuess"></ol> -->
+        <span>[</span><span id="pastGuess"></span><span>]</span>
     </div>
     <div class="rules">
         <h3>Rules of the Game</h3>
@@ -35,10 +38,11 @@
             <li>Integers only no letters</li>
         </ul>
     </div>
+    <script src="./js/script.js"></script>
     <script>
-        function clicked() {
-            alert("button clicked")
-        }
-    </script>
+    //     function clicked() {
+    //         alert("button clicked")
+    //     }
+    // </script>
 </body>
 </html>
