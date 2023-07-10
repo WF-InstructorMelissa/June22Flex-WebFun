@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Guess the Number</title>
 </head>
 <body>
@@ -16,19 +17,19 @@
         <button id="startStop" onclick="randnum()">Start Game</button>
         <form name="guessNumForm">
             <input type="number" name="guess" id="guess">
-            <!-- <input type="submit" name="" id="" value="Check"> -->
-            <!-- <button onclick="clicked()">Check</button> -->
             <input type="button" value="Check" onclick="clicked()">
         </form>
         <div class="answer">
             <p id="theGuess"></p>
-            <!-- <p id="hi"></p>
-            <p id="low"></p>
-            <p id="correct"></p> -->
         </div>
-        <h3>Past Guesses</h3>
-        <!-- <ol id="pastGuess"></ol> -->
-        <span>[</span><span id="pastGuess"></span><span>]</span>
+        <div class="past">
+            <h3>Past Guesses</h3>
+            <div class="span">
+                <span>[</span>
+                <span id="pastGuess"></span>
+                <span>]</span>
+            </div>
+        </div>
     </div>
     <div class="rules">
         <h3>Rules of the Game</h3>

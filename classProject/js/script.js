@@ -13,7 +13,9 @@ var past = []
 
 // Get random number
 function randnum() {
-    if(btn.innerText = 'Stop Game') {
+    console.log('in randnum function')
+    if(btn.innerText == 'Stop Game') {
+        console.log('in if of randnum')
         answer = null
         past = []
         result = ''
@@ -21,7 +23,7 @@ function randnum() {
         return
     }
     answer = Math.floor(Math.random() * 100) + 1
-    console.log(answer)
+    console.log('answer',answer)
     btn.innerText = 'Stop Game'
 }
 // Previous 3 guesses
