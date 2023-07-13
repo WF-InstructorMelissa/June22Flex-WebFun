@@ -1,0 +1,33 @@
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main iframe {
+  overflow: scroll;
+  width: 800px;
+  height: 400px;
+}
+@media screen and (max-width: 830px) {
+  body main iframe {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 500px) {
+  body main iframe {
+    width: 300px;
+  }
+}

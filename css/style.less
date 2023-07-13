@@ -1,0 +1,49 @@
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@830: ~"screen and (max-width: 830px)";
+
+// * {
+//     margin: 0;
+// 	padding: 0;
+// 	border: 0;
+// }
+
+
+
+body {
+    .flexcolumn();
+
+    main {
+        .flexcolumn();
+
+        iframe {
+            overflow: scroll;
+            width: 800px;
+            height: 400px;
+            // margin: 2em;
+        }
+    }
+}
+
+@media @830 {
+    body {
+        main {
+            iframe {
+                width: 400px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    body {
+        main {
+            iframe {
+                width: 300px;
+            }
+        }
+    }
+}
