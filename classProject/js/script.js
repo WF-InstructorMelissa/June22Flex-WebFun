@@ -83,3 +83,51 @@ function clicked() {
 // timer
 // logic for game
 // buttons
+
+// Pause Game
+function changeText() {
+    let text = document.getElementById('pause')
+    console.log(text.innerText)
+    if(text.innerText == "Hesitate") {
+        text.innerText = "Persevere"
+    } else {
+        text.innerText = "Hesitate"
+    }
+}
+
+// 10 across and 10 down 
+
+let rows = 10
+let cols = 10
+
+function makeEmptyGrid() {
+    let grid = [];
+    for (let y = 0; y < rows; y++) {
+        grid.push([])
+        for (let x = 0; x < cols; x++) {
+            grid[y].push([0])
+        }
+    }
+    console.log('the grid', grid)
+    return grid;
+}
+// makeEmptyGrid()
+
+function createBoard() {
+    var board = document.getElementById('board')
+    // board.innerText = makeEmptyGrid()
+    let theGrid = makeEmptyGrid()
+    for(let y = 0; y < theGrid.length; y++) {
+        let rowDiv = document.createElement('div')
+        rowDiv.className = 'gridRow'
+        for(let x = 0; x < theGrid[y].length; x++) {
+            let cell = document.createElement('div')
+            cell.innerHTML = theGrid[y][x]
+            cell.className = 'cell'
+            rowDiv.appendChild(cell)
+        }
+        // rowDiv.innerHTML = theGrid[y]
+        board.appendChild(rowDiv)
+    }
+}
+createBoard()

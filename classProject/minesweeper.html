@@ -17,7 +17,7 @@
         <div id="board"></div>
         <div id="time"></div>
         <div id="buttons">
-            <button id="pause" onclick="changeText(); pauseGame()">Hesitate</button>
+            <button id="pause" onclick="pauseGame(); changeText()">Hesitate</button>
             <!-- Change hesitate button text to persevere -->
             <button>Surrender</button>
         </div>
@@ -30,16 +30,6 @@
             <li>Numbered tiles = tread carefully mines are close</li>
         </ul>
     </div>
-    <script>
-        function changeText() {
-            let text = document.getElementById('pause')
-            console.log(text.innerText)
-            if(text.innerText == "Hesitate") {
-                text.innerText = "Persevere"
-            } else {
-                text.innerText = "Hesitate"
-            }
-        }
-    </script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
