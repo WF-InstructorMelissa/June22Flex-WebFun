@@ -88,12 +88,15 @@ body .game .past .span {
   padding: 2em;
   font-size: 1.4em;
 }
-body .game #board .gridRow {
-  border: 1px black solid;
+body .game #board {
+  margin: 2em;
 }
 body .game #board .gridRow .cell {
   display: inline-block;
   border: 1px red solid;
   width: 3em;
   height: 3em;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3em;
 }

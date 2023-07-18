@@ -99,11 +99,14 @@ function changeText() {
 
 let rows = 10
 let cols = 10
+let bombs = 10
 
 function makeEmptyGrid() {
     let grid = [];
+    // Make rows
     for (let y = 0; y < rows; y++) {
         grid.push([])
+        // Make cells in each row
         for (let x = 0; x < cols; x++) {
             grid[y].push([0])
         }
@@ -113,21 +116,51 @@ function makeEmptyGrid() {
 }
 // makeEmptyGrid()
 
+
+
 function createBoard() {
+    // grab div from html
     var board = document.getElementById('board')
-    // board.innerText = makeEmptyGrid()
+    // make grid
     let theGrid = makeEmptyGrid()
+    let allBombs = []
+    for(let b=0; b< bombs; b++) {
+        allBombs.push(createBombs())
+        console.log('all bombs', allBombs)
+    }
     for(let y = 0; y < theGrid.length; y++) {
+        // Make a div for each row and give it a class name
         let rowDiv = document.createElement('div')
         rowDiv.className = 'gridRow'
         for(let x = 0; x < theGrid[y].length; x++) {
+            // Make a div for each cell and give it a class in side 1 row
             let cell = document.createElement('div')
             cell.innerHTML = theGrid[y][x]
+            // for(i = 0; i<allBombs.length; i++) {
+            //     console.log('the bomb', allBombs[i][0], 'the row', theGrid[y], 'thecell', theGrid[y][x])
+            //     if(allBombs[i][0] == theGrid[y]) {
+            //         console.log('yes')
+            //     }
+            // }
             cell.className = 'cell'
+            // push the cells to the row
             rowDiv.appendChild(cell)
         }
         // rowDiv.innerHTML = theGrid[y]
+        // add row with cells to the main board div
         board.appendChild(rowDiv)
     }
+
 }
 createBoard()
+
+function createBombs() {
+    let xCord
+    let yCord
+    let theCord = []
+    xCord = Math.floor(Math.random() * 9)
+    yCord = Math.floor(Math.random() * 9)
+    theCord.push(yCord)
+    theCord.push(xCord)
+    return theCord
+}
