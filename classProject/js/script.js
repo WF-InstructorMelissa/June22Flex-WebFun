@@ -108,7 +108,7 @@ function makeEmptyGrid() {
         grid.push([])
         // Make cells in each row
         for (let x = 0; x < cols; x++) {
-            grid[y].push([0])
+            grid[y].push('')
         }
     }
     console.log('the grid', grid)
@@ -124,10 +124,10 @@ function createBoard() {
     // make grid
     let theGrid = makeEmptyGrid()
     let allBombs = []
-    for(let b=0; b< bombs; b++) {
-        allBombs.push(createBombs())
-        console.log('all bombs', allBombs)
-    }
+    // for(let b=0; b< bombs; b++) {
+    //     allBombs.push(createBombs())
+    //     console.log('all bombs', allBombs)
+    // }
     for(let y = 0; y < theGrid.length; y++) {
         // Make a div for each row and give it a class name
         let rowDiv = document.createElement('div')
@@ -136,13 +136,8 @@ function createBoard() {
             // Make a div for each cell and give it a class in side 1 row
             let cell = document.createElement('div')
             cell.innerHTML = theGrid[y][x]
-            // for(i = 0; i<allBombs.length; i++) {
-            //     console.log('the bomb', allBombs[i][0], 'the row', theGrid[y], 'thecell', theGrid[y][x])
-            //     if(allBombs[i][0] == theGrid[y]) {
-            //         console.log('yes')
-            //     }
-            // }
             cell.className = 'cell'
+            cell.setAttribute('id', x+','+y)
             // push the cells to the row
             rowDiv.appendChild(cell)
         }
@@ -150,7 +145,59 @@ function createBoard() {
         // add row with cells to the main board div
         board.appendChild(rowDiv)
     }
-
+    for(let b = 0; b < bombs; b++) {
+        let create = true
+        while(create) {
+            let target = createBombs()
+            let xCord = target[0]
+            let yCord = target[1]
+            let theCell = document.getElementById(xCord+','+yCord)
+            if(theCell.innerHTML == '') {
+                theCell.innerHTML = '&#x1f4a3;'
+                create = false
+            }
+        }
+    }
+    for(i = 0; i<theGrid.length; i++) {
+        for(let c = 0; c< theGrid[i].length; c++) {
+            let currCell = document.getElementById(i+','+c)
+            let leftCell = document.getElementById((i)+','+(c-1))
+            let leftTopCell = document.getElementById((i-1)+','+(c-1))
+            let topCell = document.getElementById((i-1)+','+(c))
+            let rightTopCell = document.getElementById((i-1)+','+(c+1))
+            let rightCell = document.getElementById((i)+','+(c+1))
+            let rightBotCell = document.getElementById((i+1)+','+(c+1))
+            let botCell = document.getElementById((i+1)+','+(c))
+            let leftBotCell = document.getElementById((i+1)+','+(c-1))
+            // console.log("the current cell", currCell, 'leftCell',leftCell)
+            let adjBomb = 0
+            if(leftCell != null && leftCell.innerHTML != '' ) {
+                console.log('leftCell',leftCell.innerHTML)
+                adjBomb++
+                console.log('adjBomb', adjBomb)
+            }
+            if(leftTopCell != null && leftTopCell.innerHTML != '' ) {
+                console.log('leftCell',leftTopCell.innerHTML)
+                adjBomb++
+                console.log('adjBomb', adjBomb)
+            }
+            if(topCell != null && topCell.innerHTML != '' ) {
+                console.log('leftCell',topCell.innerHTML)
+                adjBomb++
+                console.log('adjBomb', adjBomb)
+            }
+            if(rightTopCell != null && rightTopCell.innerHTML != '' ) {
+                console.log('leftCell',rightTopCell.innerHTML)
+                adjBomb++
+                console.log('adjBomb', adjBomb)
+            }
+            if(rightCell != null && rightCell.innerHTML != '' ) {
+                console.log('leftCell',rightCell.innerHTML)
+                adjBomb++
+                console.log('adjBomb', adjBomb)
+            }
+        }
+    }
 }
 createBoard()
 
