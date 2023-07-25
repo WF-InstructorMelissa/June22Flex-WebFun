@@ -100,8 +100,9 @@ function changeText() {
 let rows = 10
 let cols = 10
 let bombs = 10
+let theb = '&#x1f4a3;'
 
-function makeEmptyGrid() {
+function makeGrid() {
     let grid = [];
     // Make rows
     for (let y = 0; y < rows; y++) {
@@ -109,6 +110,34 @@ function makeEmptyGrid() {
         // Make cells in each row
         for (let x = 0; x < cols; x++) {
             grid[y].push('')
+        }
+    }
+    // Place bombs
+    for(let b = 0; b < bombs; b++) {
+        let create = true
+        while(create) {
+            let target = createBombs()
+            let xCord = target[0]
+            let yCord = target[1]
+            let theCell = grid[xCord][yCord]
+            if(theCell == '') {
+                grid[xCord][yCord] = theb
+                create = false
+            }
+        }
+    }
+    // Set Adjacent Cells
+    for(i = 0; i<grid.length; i++) {
+        for(let c = 0; c< grid[i].length; c++) {
+            let currCell = grid[i][c]
+            let lCell = grid[i-1][c]
+            let lTopCell = grid[i-1][c-1]
+            let topCell = grid[i][c-1]
+            let rTopCell = grid[i+1][c-1]
+            let rCell = grid[i+1][c]
+            let rBotCell = grid[i+1][c+1]
+            let botCell = grid[i][c+1]
+            let lBotCell = grid[i-1][c+1]
         }
     }
     console.log('the grid', grid)
@@ -122,12 +151,7 @@ function createBoard() {
     // grab div from html
     var board = document.getElementById('board')
     // make grid
-    let theGrid = makeEmptyGrid()
-    let allBombs = []
-    // for(let b=0; b< bombs; b++) {
-    //     allBombs.push(createBombs())
-    //     console.log('all bombs', allBombs)
-    // }
+    let theGrid = makeGrid()
     for(let y = 0; y < theGrid.length; y++) {
         // Make a div for each row and give it a class name
         let rowDiv = document.createElement('div')
@@ -145,59 +169,6 @@ function createBoard() {
         // add row with cells to the main board div
         board.appendChild(rowDiv)
     }
-    for(let b = 0; b < bombs; b++) {
-        let create = true
-        while(create) {
-            let target = createBombs()
-            let xCord = target[0]
-            let yCord = target[1]
-            let theCell = document.getElementById(xCord+','+yCord)
-            if(theCell.innerHTML == '') {
-                theCell.innerHTML = '&#x1f4a3;'
-                create = false
-            }
-        }
-    }
-    for(i = 0; i<theGrid.length; i++) {
-        for(let c = 0; c< theGrid[i].length; c++) {
-            let currCell = document.getElementById(i+','+c)
-            let leftCell = document.getElementById((i)+','+(c-1))
-            let leftTopCell = document.getElementById((i-1)+','+(c-1))
-            let topCell = document.getElementById((i-1)+','+(c))
-            let rightTopCell = document.getElementById((i-1)+','+(c+1))
-            let rightCell = document.getElementById((i)+','+(c+1))
-            let rightBotCell = document.getElementById((i+1)+','+(c+1))
-            let botCell = document.getElementById((i+1)+','+(c))
-            let leftBotCell = document.getElementById((i+1)+','+(c-1))
-            // console.log("the current cell", currCell, 'leftCell',leftCell)
-            let adjBomb = 0
-            if(leftCell != null && leftCell.innerHTML != '' ) {
-                console.log('leftCell',leftCell.innerHTML)
-                adjBomb++
-                console.log('adjBomb', adjBomb)
-            }
-            if(leftTopCell != null && leftTopCell.innerHTML != '' ) {
-                console.log('leftCell',leftTopCell.innerHTML)
-                adjBomb++
-                console.log('adjBomb', adjBomb)
-            }
-            if(topCell != null && topCell.innerHTML != '' ) {
-                console.log('leftCell',topCell.innerHTML)
-                adjBomb++
-                console.log('adjBomb', adjBomb)
-            }
-            if(rightTopCell != null && rightTopCell.innerHTML != '' ) {
-                console.log('leftCell',rightTopCell.innerHTML)
-                adjBomb++
-                console.log('adjBomb', adjBomb)
-            }
-            if(rightCell != null && rightCell.innerHTML != '' ) {
-                console.log('leftCell',rightCell.innerHTML)
-                adjBomb++
-                console.log('adjBomb', adjBomb)
-            }
-        }
-    }
 }
 createBoard()
 
@@ -205,8 +176,8 @@ function createBombs() {
     let xCord
     let yCord
     let theCord = []
-    xCord = Math.floor(Math.random() * 9)
-    yCord = Math.floor(Math.random() * 9)
+    xCord = Math.floor(Math.random() * row-1)
+    yCord = Math.floor(Math.random() * cols-1)
     theCord.push(yCord)
     theCord.push(xCord)
     return theCord

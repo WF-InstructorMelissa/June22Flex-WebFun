@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='./css/styles.css'>
+    <title>CSS and JS</title>
+</head>
+<body>
+    <h1>CSS and JS</h1>
+    <div>
+        <!-- My Children should be on the same line -->
+        <div>
+            <h4 id="h4Style">Using JS Change my text color and size</h4>
+            <input type="button" onclick="h4Style()" value="Change Me">
+        </div>
+        <div>
+            <h4>Add an image to my Div using JS</h4>
+            <div id="addImg"></div>
+            <input type="button" onclick="addImg()" value="Add Image">
+        </div>
+    </div>
+    <div>
+        <h4>Using JS show the hidden images and display them in a flex row spaced evenly</h4>
+        <div id="hidden">
+            <img src="./images/DSCN1100.JPG" alt="image01">
+            <img src="./images/DSCN1102.JPG" alt="image02">
+            <img src="./images/DSCN1146.JPG" alt="image03">
+            <img src="./images/DSCN1147.JPG" alt="image04">
+            <img src="./images/DSCN1154.JPG" alt="image05">
+            <img src="./images/DSCN1159.JPG" alt="image06">
+        </div>
+        <input type="button" onclick="showImg()" value="Show Images">
+    </div>
+    <div>
+        <h4>Lets print a string to an alert button</h4>
+        <input type='button' onclick='stringAlert()' value='String Alert Button'>
+    </div>
+    <div>
+        <h4>Increase the like number</h4>
+        <h4>Like Me <span id="like">0</span></h4>
+        <input type='button' onclick='likeMe()' value='Increase Likes'>
+    </div>
+    <div>
+        <h4>Lets print a string to span tag using a form</h4>
+        <span id="stringSpan"></span>
+        <form name="">
+            <input type="text" name="">
+            <input type='button' onclick='stringSpan()' value='String Span Button'>
+        </form>
+    </div>
+    <div>
+        <h4>Lets print a number to an span tag</h4>
+        <span id="numbers"></span>
+        <input type='button' onclick="numberAlert()" value='Number Button'>
+        <input type='button' onclick='numberAlertString()' value='Button w/number and String'>
+    </div>
+    <div>
+        <!-- My Children should be on the same line -->
+        <div>
+            <h4>Print an array to an span</h4>
+            <span id="array"></span>
+            <input type='button' onclick='array01Alert()' value='String Array'>
+        </div>
+        <div>
+            <h4>Lets add 2+4 in a function</h4>
+            <span id="add"></span>
+            <input type='button' onclick='adding(2,4)' value='Add 2+4'>
+            <h4>Lets use a form to add numbers</h4>
+            <form name="form01">
+                <input type="number" name="num01" id="num01">
+                <input type="number" name="num02" id="num02">
+                <input type='button' onclick='adding02()' value='Adding form numbers'>
+            </form>
+        </div>
+    </div>
+    <div>
+        <h4>If statement/ for loop</h4>
+        <input type='button' onclick='ifLoop()' value='If Loop Function'>
+        <input type='button' onclick='ifLoop2()' value='If Loop Function 2'>
+        <input type='button' onclick='ifLoop3()' value='If Loop Function 3'>
+    </div>
+    <script src='./js/script.js'></script>
+</body>
+</html>

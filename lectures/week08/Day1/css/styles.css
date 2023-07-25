@@ -1,0 +1,25 @@
+/* * {
+    border: red 2px dotted;
+} */
+
+img {
+    max-width: 200px;
+}
+
+#hidden {
+    display: none;
+}
+body {
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: bisque;
+}
+div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
