@@ -84,6 +84,10 @@ function clicked() {
 // logic for game
 // buttons
 
+function print(a,) {
+    console.log('Printing:', a)
+}
+
 // Pause Game
 function changeText() {
     let text = document.getElementById('pause')
@@ -99,7 +103,7 @@ function changeText() {
 
 let rows = 10
 let cols = 10
-let bombs = 10
+let bombs = rows+cols
 let theb = '&#x1f4a3;'
 
 function makeGrid() {
@@ -119,6 +123,7 @@ function makeGrid() {
             let target = createBombs()
             let xCord = target[0]
             let yCord = target[1]
+            // console.log(xCord, yCord)
             let theCell = grid[xCord][yCord]
             if(theCell == '') {
                 grid[xCord][yCord] = theb
@@ -126,18 +131,28 @@ function makeGrid() {
             }
         }
     }
-    // Set Adjacent Cells
-    for(i = 0; i<grid.length; i++) {
-        for(let c = 0; c< grid[i].length; c++) {
-            let currCell = grid[i][c]
-            let lCell = grid[i-1][c]
-            let lTopCell = grid[i-1][c-1]
-            let topCell = grid[i][c-1]
-            let rTopCell = grid[i+1][c-1]
-            let rCell = grid[i+1][c]
-            let rBotCell = grid[i+1][c+1]
-            let botCell = grid[i][c+1]
-            let lBotCell = grid[i-1][c+1]
+    // Set Adjacent Cell counts
+    for(r = 0; r < rows; r++) {
+        for(let c = 0; c < cols; c++) {
+            if(grid[r][c] !== theb) {
+                let adjB = 0
+            // for each of the cords of the adjCells dr= row dc=column
+                for(const [dr, dc] of adjCells) {
+                    // if cell is in grid and it is a bomb
+                    if(validCell(r + dr, c + dc) && grid[r+dr][c+dc] === theb) {
+                        adjB++
+                    }
+                }
+                grid[r][c] = adjB
+            }
+        }
+    }
+    // Get rid of all the 0's
+    for(let r = 0; r < rows; r++) {
+        for(let c = 0; c < cols; c++) {
+            if(grid[r][c] == 0) {
+                grid[r][c] = null
+            }
         }
     }
     console.log('the grid', grid)
@@ -145,7 +160,18 @@ function makeGrid() {
 }
 // makeEmptyGrid()
 
+// checking that the cell we are looking at is actually part of our grid as we are using var rows and cols the grid size can be altered with out changing the code
+function validCell(row, col) {
+    return row >= 0 && row < rows && col >= 0 && col < cols
+}
 
+// These are the cells that surround the currently selected cell when we are checking to see how many bombs are around it
+const adjCells = [
+    [-1, -1], [-1, 0], [-1, 1],
+    [0, -1],           [0, 1],
+    [1, -1],  [1, 0],  [1, 1]
+
+]
 
 function createBoard() {
     // grab div from html
@@ -176,8 +202,8 @@ function createBombs() {
     let xCord
     let yCord
     let theCord = []
-    xCord = Math.floor(Math.random() * row-1)
-    yCord = Math.floor(Math.random() * cols-1)
+    xCord = Math.floor(Math.random() * (rows))
+    yCord = Math.floor(Math.random() * (cols))
     theCord.push(yCord)
     theCord.push(xCord)
     return theCord
